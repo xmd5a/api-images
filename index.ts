@@ -1,10 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 
 import { imageRouter, imagesRouter } from "./routes";
-
-dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 4001;
