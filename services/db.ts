@@ -15,8 +15,12 @@ const config = {
   database: dbName,
 };
 
+const provisionSql =
+  "CREATE TABLE IF NOT EXISTS images(id integer PRIMARY KEY AUTO_INCREMENT, title VARCHAR(255) NOT NULL, image VARCHAR(255) NOT NULL);";
+
 const query = async (sql: string, params?: string) => {
   const connection = await mysql.createConnection(config);
+  await connection.execute(provisionSql);
   const [results] = await connection.execute(sql, params);
   await connection.end();
 

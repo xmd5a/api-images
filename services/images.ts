@@ -40,7 +40,6 @@ const getImage = async (imageId: string) => {
   const url = await getSignedUrl(s3client, command, { expiresIn: 15 * 60 });
 
   return { image: url };
-  return data;
 };
 
 const addImage = async (
